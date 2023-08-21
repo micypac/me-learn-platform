@@ -176,3 +176,6 @@ cert.key
 
 # ignore static root
 /static/
+
+# ignore fixtures dir that stores data dump
+fixtures/
