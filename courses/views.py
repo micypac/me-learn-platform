@@ -1,3 +1,4 @@
+from typing import Any, Dict
 from django.shortcuts import redirect, get_object_or_404
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -7,12 +8,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from django.forms.models import modelform_factory
 from django.apps import apps
 from django.urls import reverse_lazy
-from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
 from django.db.models import Count
+from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
 
 
 from .models import Subject, Course, Module, Content
 from .forms import ModuleFormSet
+from students.forms import CourseEnrollForm
 
 
 # Mixins
@@ -192,3 +194,9 @@ class CourseListView(TemplateResponseMixin, View):
 class CourseDetailView(DetailView):
     model = Course
     template_name = "courses/course/detail.html"
+
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context["enroll_form"] = CourseEnrollForm(initial={"course": self.object})
+
+        return context

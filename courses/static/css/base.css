@@ -5,10 +5,12 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   color: #333;
+  background-color: #f8f0e5;
 }
 
 a {
-  color: #3fad37;
+  color: #205295;
+  font-weight: 700;
   text-decoration: none;
 }
 
@@ -27,7 +29,7 @@ h6 {
 }
 
 h1 {
-  background: #efefef;
+  background: #dac0a3;
   width: 100%;
   overflow: auto;
   padding: 20px 0 20px 40px;
@@ -53,10 +55,10 @@ h1 {
 }
 
 #header {
-  background: #4dcc43;
+  background: #102c57;
   overflow: auto;
   padding: 10px 20px;
-  border-bottom: 6px solid #3fad37;
+  border-bottom: 6px solid #16213e;
 }
 
 #header .logo {
@@ -131,7 +133,7 @@ h1 {
 }
 
 .contents ul a:hover {
-  color: #4dcc43;
+  color: #102c57;
   cursor: move;
 }
 
@@ -186,7 +188,7 @@ select {
 input[type="submit"],
 a.button {
   border-radius: 5px;
-  background: #4dcc43;
+  background: #102c57;
   color: #fff;
   font-size: 16px;
   text-transform: uppercase;
@@ -196,7 +198,7 @@ a.button {
 }
 
 a.secondary-button {
-  border: 3px solid #4dcc43;
+  border: 3px solid #102c57;
   padding: 10px 20px;
   margin: 10px 0;
 }
