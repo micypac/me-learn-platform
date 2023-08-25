@@ -47,8 +47,11 @@ INSTALLED_APPS = [
     "embed_video",
     "debug_toolbar",
     "redisboard",
+    "rest_framework",
+    "channels",
     # local apps
     "students.apps.StudentsConfig",
+    "chat.apps.ChatConfig",
 ]
 
 MIDDLEWARE = [
@@ -170,3 +173,21 @@ CACHE_MIDDLEWARE_KEY_PREFIX = "educa"
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+# rest_framework settings
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly",
+    ]
+}
+
+ASGI_APPLICATION = "educa.asgi.application"
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    }
+}
